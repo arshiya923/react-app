@@ -1,9 +1,11 @@
 import React from 'react'
 
+import './Product.css'
+
 const Product = (props) => { 
 
     return (
-        <div style={{textAlign:'center'}}>
+        <div className='product'>
             <h3>Product Name : {props.name}</h3>
             <p>{props.name} Is Good</p>
             <p>Product Price : {props.price}</p>
