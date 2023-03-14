@@ -1,6 +1,55 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Product from './components/Products/Products'
 
+const App = (props) => {
+
+    const [productState, setProductState] = useState({
+        Products : [
+            {name : 'Chai', price: 2500},
+            {name : 'Coffee', price: 3000},
+            {name : 'OJ', price: 1500},
+        ],
+    })
+
+    const changePriceHandler = () => {
+        setProductState({
+            Products : [
+                {name : 'Chai', price: 3000},
+                {name : 'Coffee', price: 3500},
+                {name : 'OJ', price: 2000},
+            ],
+        })
+    }
+
+    return(
+        <div id='main' className='container'>
+            <h2>React App</h2>
+            <p>Hello Wrold !</p>
+
+            <Product 
+                name={productState.Products[0].name}
+                price={productState.Products[0].price}
+            />
+            
+            <Product 
+                name={productState.Products[1].name}
+                price={productState.Products[1].price} 
+            />
+            
+            <Product
+                name={productState.Products[2].name}
+                price={productState.Products[2].price}
+            />
+            
+
+            <button onClick={changePriceHandler}>Change Price</button>
+        </div>
+    )
+}
+
+
+
+/*
 class App extends React.Component {
 
     state = {
@@ -48,5 +97,6 @@ class App extends React.Component {
         )
     }
 }
+*/
 
 export default App
