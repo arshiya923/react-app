@@ -9,7 +9,9 @@ class App extends React.Component {
                 <p>Hello Wrold !</p>
 
                 <Product name="Chai" price="2500" />
-                <Product name="Coffee" price="3000" />
+                <Product name="Coffee" price="3000">
+                    Discount : 20%
+                </Product>
                 <Product name="OJ" price="1500" />
             </div>
         )
