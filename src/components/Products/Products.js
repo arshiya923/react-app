@@ -1,14 +1,11 @@
 import React from 'react'
 
-const Product = () => {
-
-    const price = 2500;
-
+const Product = (props) => {
     return (
         <div style={{textAlign:'center'}}>
-            <h3>Product Name : Chai</h3>
-            <p>Chai Is Good</p>
-            <p>Product Price : {price}</p>
+            <h3>Product Name : {props.name}</h3>
+            <p>{props.name} Is Good</p>
+            <p>Product Price : {props.price}</p>
         </div>
     )
 }

@@ -8,9 +8,9 @@ class App extends React.Component {
                 <h2>React App</h2>
                 <p>Hello Wrold !</p>
 
-                <Product />
-                <Product />
-                <Product />
+                <Product name="Chai" price="2500" />
+                <Product name="Coffee" price="3000" />
+                <Product name="OJ" price="1500" />
             </div>
         )
     }
