@@ -27,7 +27,7 @@ class App extends React.Component {
         return(
             <div className='center'>
                 <h2>React App</h2>
-                <p>Hello Wrold !</p>
+                <p>Hello World !</p>
 
                 <Product 
                     name={this.state.Products[0].name}
@@ -75,7 +75,7 @@ const App = (props) => {
     return(
         <div id='main' className='container'>
             <h2>React App</h2>
-            <p>Hello Wrold !</p>
+            <p>Hello World !</p>
 
             <Product 
                 name={productState.Products[0].name}
