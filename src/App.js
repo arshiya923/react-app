@@ -10,7 +10,19 @@ class App extends React.Component {
             {name : 'Chai', price: 2500},
             {name : 'Coffee', price: 3000},
             {name : 'OJ', price: 1500},
+            {name : 'Add Your Product Name', price: 5000 }
         ],
+    }
+
+    ChangeNameHandler = (event) => {
+        this.setState({
+            Products : [
+                {name : 'Chai', price: 3000},
+                {name : 'Coffee', price: 3500},
+                {name : 'OJ', price: 2000},
+                {name : event.target.value, price : 5000 }
+            ],
+        })
     }
 
     changePriceHandler = (newName) => {
@@ -19,6 +31,7 @@ class App extends React.Component {
                 {name : newName, price: 3000},
                 {name : 'Coffee', price: 3500},
                 {name : 'OJ', price: 2000},
+                {name : 'Add Your Product Name', price: 5000 }
             ],
         })
     }
@@ -43,6 +56,12 @@ class App extends React.Component {
                     name={this.state.Products[2].name}
                     price={this.state.Products[2].price}
                     click={() => this.changePriceHandler('Black Tea')}
+                />
+
+                <Product
+                    name={this.state.Products[3].name}
+                    price={this.state.Products[3].price}
+                    change={this.ChangeNameHandler}
                 />
                 
 
