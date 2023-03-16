@@ -13,10 +13,10 @@ class App extends React.Component {
         ],
     }
 
-    changePriceHandler = () => {
+    changePriceHandler = (newName) => {
         this.setState({
             Products : [
-                {name : 'Chai', price: 3000},
+                {name : newName, price: 3000},
                 {name : 'Coffee', price: 3500},
                 {name : 'OJ', price: 2000},
             ],
@@ -36,16 +36,17 @@ class App extends React.Component {
                 
                 <Product 
                     name={this.state.Products[1].name}
-                    price={this.state.Products[1].price} 
+                    price={this.state.Products[1].price}
                 />
                 
                 <Product
                     name={this.state.Products[2].name}
                     price={this.state.Products[2].price}
+                    click={() => this.changePriceHandler('Black Tea')}
                 />
                 
 
-                <button onClick={this.changePriceHandler}>Change Price</button>
+                <button onClick={this.changePriceHandler.bind(this, 'Black Tea')}>Change Price</button>
             </div>
         )
     }
