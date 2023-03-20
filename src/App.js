@@ -50,6 +50,38 @@ class App extends React.Component {
 
         }
 
+        let products = null
+
+        if(this.state.showProducts)
+        {
+            products = (
+
+                <div>
+                    <Product 
+                        name={this.state.Products[0].name}
+                        price={this.state.Products[0].price}
+                    />
+                    
+                    <Product 
+                        name={this.state.Products[1].name}
+                        price={this.state.Products[1].price}
+                    />
+                    
+                    <Product
+                        name={this.state.Products[2].name}
+                        price={this.state.Products[2].price}
+                        click={() => this.changePriceHandler('Black Tea')}
+                    />
+
+                    <Product
+                        name={this.state.Products[3].name}
+                        price={this.state.Products[3].price}
+                        change={this.ChangeNameHandler}
+                    />
+                </div>
+                )
+        }
+
         return(
             <div className='center'>
                 <h2>React App</h2>
@@ -59,32 +91,8 @@ class App extends React.Component {
                     Show/Hide Products
                 </button>
 
-                {this.state.showProducts ?
-                    <div>
-                        <Product 
-                            name={this.state.Products[0].name}
-                            price={this.state.Products[0].price}
-                        />
-                        
-                        <Product 
-                            name={this.state.Products[1].name}
-                            price={this.state.Products[1].price}
-                        />
-                        
-                        <Product
-                            name={this.state.Products[2].name}
-                            price={this.state.Products[2].price}
-                            click={() => this.changePriceHandler('Black Tea')}
-                        />
 
-                        <Product
-                            name={this.state.Products[3].name}
-                            price={this.state.Products[3].price}
-                            change={this.ChangeNameHandler}
-                        />
-                    </div> : null
-                }
-                
+                {products}
 
                 
             </div>
