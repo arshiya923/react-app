@@ -10,7 +10,6 @@ class App extends React.Component {
             {name : 'Chai', price: 2500},
             {name : 'Coffee', price: 3000},
             {name : 'OJ', price: 1500},
-            {name : 'Add Your Product Name', price: 5000 }
         ],
         showProducts : false
     }
@@ -21,7 +20,6 @@ class App extends React.Component {
                 {name : 'Chai', price: 3000},
                 {name : 'Coffee', price: 3500},
                 {name : 'OJ', price: 2000},
-                {name : event.target.value, price : 5000 }
             ],
             showProducts : this.state.showProducts
         })
@@ -57,27 +55,14 @@ class App extends React.Component {
             products = (
 
                 <div>
-                    <Product 
-                        name={this.state.Products[0].name}
-                        price={this.state.Products[0].price}
-                    />
-                    
-                    <Product 
-                        name={this.state.Products[1].name}
-                        price={this.state.Products[1].price}
-                    />
-                    
-                    <Product
-                        name={this.state.Products[2].name}
-                        price={this.state.Products[2].price}
-                        click={() => this.changePriceHandler('Black Tea')}
-                    />
-
-                    <Product
-                        name={this.state.Products[3].name}
-                        price={this.state.Products[3].price}
-                        change={this.ChangeNameHandler}
-                    />
+                    {
+                        this.state.Products.map((item) => {
+                            return <Product 
+                                        name={item.name}
+                                        price={item.price}
+                            />
+                        })
+                    }
                 </div>
                 )
         }
