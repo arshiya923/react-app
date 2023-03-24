@@ -5,7 +5,7 @@ import './App.css'
 
 class App extends React.Component {
     state = {
-        Products: [
+        products: [
             { name: 'Chai', price: 2500 },
             { name: 'Coffee', price: 3000 },
             { name: 'OJ', price: 1500 }
@@ -15,12 +15,11 @@ class App extends React.Component {
 
     ChangeNameHandler = (event) => {
         this.setState({
-            Products: [
+            products: [
                 { name: 'Chai', price: 3000 },
                 { name: 'Coffee', price: 3500 },
                 { name: 'OJ', price: 2000 }
-            ],
-            showProducts: this.state.showProducts
+            ]
         })
     }
 
@@ -28,6 +27,14 @@ class App extends React.Component {
         const show = this.state.showProducts
         this.setState({
             showProducts: !show
+        })
+    }
+
+    deleteProductHandler = (productIndex) => {
+        const products = this.state.products
+        products.splice(productIndex, 1)
+        this.setState({
+            products
         })
     }
 
@@ -51,11 +58,12 @@ class App extends React.Component {
 
                 <div>
                     {
-                        this.state.Products.map((item) => {
+                        this.state.products.map((item, index) => {
                             // eslint-disable-next-line react/jsx-key
                             return <Product
                                 name={item.name}
                                 price={item.price}
+                                click={() => this.deleteProductHandler(index)}
                             />
                         })
                     }
