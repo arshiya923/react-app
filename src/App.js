@@ -6,9 +6,9 @@ import './App.css'
 class App extends React.Component {
     state = {
         products: [
-            { name: 'Chai', price: 2500 },
-            { name: 'Coffee', price: 3000 },
-            { name: 'OJ', price: 1500 }
+            { id: 1, name: 'Chai', price: 2500 },
+            { id: 2, name: 'Coffee', price: 3000 },
+            { id: 3, name: 'OJ', price: 1500 }
         ],
         showProducts: false
     }
@@ -59,11 +59,11 @@ class App extends React.Component {
                 <div>
                     {
                         this.state.products.map((item, index) => {
-                            // eslint-disable-next-line react/jsx-key
                             return <Product
                                 name={item.name}
                                 price={item.price}
                                 click={() => this.deleteProductHandler(index)}
+                                key={index}
                             />
                         })
                     }
