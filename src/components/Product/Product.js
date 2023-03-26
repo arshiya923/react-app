@@ -10,7 +10,7 @@ const Product = (props) => {
             <p>{props.name} Is Good</p>
             <p>Product Price : {props.price}</p>
             <p>{props.children}</p>
-            <input type="text" onChange={props.change}/>
+            <input type="text" onChange={props.change} value={props.name}/>
         </div>
     )
 }

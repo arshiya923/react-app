@@ -13,13 +13,22 @@ class App extends React.Component {
         showProducts: false
     }
 
-    ChangeNameHandler = (event) => {
+    ChangeNameHandler = (event, id) => {
+        const productIndex = this.state.products.findIndex((item) => {
+            return item.id === id
+        })
+        const product = {
+            ...this.state.products[productIndex]
+        }
+
+        product.name = event.target.value
+
+        const products = [...this.state.products]
+
+        products[productIndex] = product
+
         this.setState({
-            products: [
-                { name: 'Chai', price: 3000 },
-                { name: 'Coffee', price: 3500 },
-                { name: 'OJ', price: 2000 }
-            ]
+            products
         })
     }
 
@@ -63,6 +72,7 @@ class App extends React.Component {
                                 name={item.name}
                                 price={item.price}
                                 click={() => this.deleteProductHandler(index)}
+                                change={(event) => this.ChangeNameHandler(event, item.id)}
                                 key={index}
                             />
                         })
